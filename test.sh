@@ -1,5 +1,5 @@
 #! /bin/sh
-SRCDIR=/Users/shimehituzi/Dropbox/lab/lossless-challegne/TMW
+SRCDIR=$TMW_PATH
 
 LOG="log/"`date +%Y%m%d_%H-%M-%S`.log
 
