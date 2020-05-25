@@ -1,3 +1,4 @@
+#include <stdio.h>
 #define MAGIC_NUMBER ('M' << 8) + 'R'
 #define HAVE_64BIT_INTEGER
 typedef unsigned long size_t;
