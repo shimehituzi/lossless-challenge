@@ -3,3 +3,10 @@ secrets.sh
 
 # log ファイルは追跡しない
 log/
+
+# output ファイルは追跡しない
+*.o
+
+# make によって生成された実行ファイルも追跡しない
+lc2020_decoder
+lc2020_encoder
