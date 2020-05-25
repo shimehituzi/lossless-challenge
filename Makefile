@@ -1,4 +1,4 @@
-CC = gcc-9
+CC = gcc
 CFLAG = -O3 -funroll-loops -Wall
 
 EXE = lc2020_encoder lc2020_decoder
