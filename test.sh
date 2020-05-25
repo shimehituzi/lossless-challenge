@@ -1,6 +1,5 @@
 #! /bin/sh
-SRCDIR=/Users/nakaki/project/lc2020/TMW
-
+SRCDIR=$TMW_PATH
 
 LOG="log/"`date +%Y%m%d_%H-%M-%S`.log
 
