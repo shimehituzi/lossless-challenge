@@ -5,21 +5,21 @@
 // 指定ビット分順に読み込む
 uint getbits(FILE *fp, int n)
 {
-	static int bitpos = 0;
-	static uint bitbuf = 0;
-	int x = 0;
+  static int bitpos = 0;
+  static uint bitbuf = 0;
+  int x = 0;
 
-	if (n <= 0) return (0);
-	while (n > bitpos) {
-		n -= bitpos;
-		x = (x << bitpos) | bitbuf;
-		bitbuf = getc(fp) & 0xff;
-		bitpos = 8;
-	}
-	bitpos -= n;
-	x = (x << n) | (bitbuf >> bitpos);
-	bitbuf &= ((1 << bitpos) - 1);
-	return (x);
+  if (n <= 0) return (0);
+  while (n > bitpos) {
+    n -= bitpos;
+    x = (x << bitpos) | bitbuf;
+    bitbuf = getc(fp) & 0xff;
+    bitpos = 8;
+  }
+  bitpos -= n;
+  x = (x << n) | (bitbuf >> bitpos);
+  bitbuf &= ((1 << bitpos) - 1);
+  return (x);
 }
 
 // デコーダーの設定
@@ -28,9 +28,9 @@ DECODER init_decoder(FILE *fp)
   DECODER dec;
   if (getbits(fp, 16) != MAGIC_NUMBER)
   {
-		fprintf(stderr, "Not a compressed file!\n");
-		exit(1);
-	}
+    fprintf(stderr, "Not a compressed file!\n");
+    exit(1);
+  }
   dec.width = getbits(fp, 16);
   dec.height = getbits(fp, 16);
   dec.maxval = getbits(fp, 16);
@@ -73,7 +73,7 @@ IMAGE *decode_image(FILE *fp, DECODER *dec)
       img->val[y][x] = rc_decode(fp, dec->rc, &pm, 0, dec->maxval + 1);
     }
   }
-  
+
   return (img);
 }
 
@@ -92,7 +92,7 @@ int main(int argc, char **argv)
   fp = fileopen(infile, "rb");
 
   printf("*** start decoding ***\n");
-  
+
   // 符号化済みファイルのヘッダーを読み込みデコーダーを初期化
   dec = init_decoder(fp);
 
