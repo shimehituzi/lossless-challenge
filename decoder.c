@@ -89,7 +89,6 @@ void dpcm_remove(DECODER *dec, IMAGE *img)
 {
   int y, x;
   int v1, v2, v3, v4;
-  printf("荒木田");
   for(y = 0 ; y < dec->height; y++){
     for(x = 0 ; x < dec->width; x++){
       if(y == 0 && x == 0 ){
