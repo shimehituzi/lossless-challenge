@@ -10,3 +10,6 @@ log/
 # make によって生成された実行ファイルも追跡しない
 lc2020_decoder
 lc2020_encoder
+
+# vscode の設定
+.vscode
