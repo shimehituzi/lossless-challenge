@@ -80,6 +80,7 @@ DECODER init_decoder(FILE *);
 uint getbits(FILE *, int);
 void decode_pmodel(FILE *, DECODER *);
 IMAGE *decode_image(FILE *, DECODER *);
+void dpcm_remove(DECODER *,IMAGE *);
 
 /* common.c */
 FILE *fileopen(char *, char *);
