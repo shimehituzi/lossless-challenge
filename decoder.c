@@ -70,12 +70,40 @@ IMAGE *decode_image(FILE *fp, DECODER *dec)
   {
     for (int x = 0; x < dec->width; x++)
     {
-      img->val[y][x] = rc_decode(fp, dec->rc, &pm, 0, dec->maxval + 1);
+      dec->filtered_val[y][x] = rc_decode(fp, dec->rc, &pm, 0, dec->maxval + 1);
     }
   }
 
   return (img);
 }
+
+// フィルタを除去
+void dpcm_remove(DECODER *dec, IMAGE *img)
+{
+  int y, x;
+  int v1, v2, v3, v4;
+  for(y = 0 ; y < dec->height; y++){
+    for(x = 0 ; x < dec->width; x++){
+      if(y == 0 && x == 0 ){
+        v1 = dec->filtered_val[y][x];
+        img->val[y][x] = v1;
+      }
+      else if(y == 0){
+        v2 = dec->filtered_val[y][x] + img->val[y][x-1];
+        img->val[y][x] = v2;
+      }
+      else if(x == 0){
+        v3 = dec->filtered_val[y][x] + img->val[y-1][x];
+        img->val[y][x] = v3;
+      }
+      else{
+        v4 = dec->filtered_val[y][x] + img->val[y][x-1] + img->val[y-1][x] - img->val[y-1][x-1];
+        img->val[y][x] = v4;
+      }
+    }
+  }
+}
+
 
 int main(int argc, char **argv)
 {

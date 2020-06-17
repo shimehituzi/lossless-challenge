@@ -60,6 +60,7 @@ typedef struct
   int width;
   int height;
   int maxval;
+  img_t **filtered_val;
   uint *pmodel;
   RANGECODER *rc;
 } DECODER;
@@ -67,6 +68,7 @@ typedef struct
 /* encoder.c */
 ENCODER init_encoder(IMAGE *);
 int putbits(FILE *, int, uint);
+void dpcm(ENCODER *, IMAGE *);
 int write_header(ENCODER *, FILE *);
 void calc_histogram(ENCODER *);
 void generate_pmodel(ENCODER *);

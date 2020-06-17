@@ -203,7 +203,7 @@ int main(int argc, char **argv)
   enc = init_encoder(img);
 
   //フィルタを掛ける
-  dpcm(&enc, &img);
+  dpcm(&enc, img);
 
   // 画像のヒストグラムを計算
   calc_histogram(&enc);
