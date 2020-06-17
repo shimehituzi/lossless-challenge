@@ -48,6 +48,7 @@ typedef struct
   int width;
   int height;
   int maxval;
+  img_t **filtered_val;
   int *histogram;
   uint *pmodel;
   int pmodel_precision;
@@ -67,10 +68,10 @@ typedef struct
 ENCODER init_encoder(IMAGE *);
 int putbits(FILE *, int, uint);
 int write_header(ENCODER *, FILE *);
-void calc_histogram(ENCODER *, IMAGE *);
+void calc_histogram(ENCODER *);
 void generate_pmodel(ENCODER *);
 int encode_pmodel(ENCODER *, FILE *);
-int encode_image(ENCODER *, FILE *, IMAGE *);
+int encode_image(ENCODER *, FILE *);
 
 /* decoder.c */
 DECODER init_decoder(FILE *);
