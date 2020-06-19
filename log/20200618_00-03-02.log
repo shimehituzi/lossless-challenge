@@ -1,0 +1,183 @@
+Darwin shimehituzinoMac-mini.local 19.3.0 Darwin Kernel Version 19.3.0: Thu Jan  9 20:58:23 PST 2020; root:xnu-6153.81.5~1/RELEASE_X86_64 x86_64
+/Users/shimehituzi/Dropbox/lab/lossless-challegne/TMW/airplane.pgm
+*** start encoding ***
+encoding success.
+pmodel bitrate[bits/pel]: 0.007812
+image  bitrate[bits/pel]: 6.715118
+-----------------------------------
+total  bitrate[bits/pel]: 6.723175
+
+*** start decoding ***
+decoding success.
+*** write pgm ***
+write pgm success.
+
+OK!
+/Users/shimehituzi/Dropbox/lab/lossless-challegne/TMW/baboon.pgm
+*** start encoding ***
+encoding success.
+pmodel bitrate[bits/pel]: 0.007812
+image  bitrate[bits/pel]: 7.361023
+-----------------------------------
+total  bitrate[bits/pel]: 7.369080
+
+*** start decoding ***
+decoding success.
+*** write pgm ***
+write pgm success.
+
+OK!
+/Users/shimehituzi/Dropbox/lab/lossless-challegne/TMW/balloon.pgm
+*** start encoding ***
+encoding success.
+pmodel bitrate[bits/pel]: 0.004938
+image  bitrate[bits/pel]: 7.349132
+-----------------------------------
+total  bitrate[bits/pel]: 7.354225
+
+*** start decoding ***
+decoding success.
+*** write pgm ***
+write pgm success.
+
+OK!
+/Users/shimehituzi/Dropbox/lab/lossless-challegne/TMW/barb.pgm
+*** start encoding ***
+encoding success.
+pmodel bitrate[bits/pel]: 0.004938
+image  bitrate[bits/pel]: 7.557118
+-----------------------------------
+total  bitrate[bits/pel]: 7.562211
+
+*** start decoding ***
+decoding success.
+*** write pgm ***
+write pgm success.
+
+OK!
+/Users/shimehituzi/Dropbox/lab/lossless-challegne/TMW/barb2.pgm
+*** start encoding ***
+encoding success.
+pmodel bitrate[bits/pel]: 0.004938
+image  bitrate[bits/pel]: 7.489969
+-----------------------------------
+total  bitrate[bits/pel]: 7.495062
+
+*** start decoding ***
+decoding success.
+*** write pgm ***
+write pgm success.
+
+OK!
+/Users/shimehituzi/Dropbox/lab/lossless-challegne/TMW/camera.pgm
+*** start encoding ***
+encoding success.
+pmodel bitrate[bits/pel]: 0.031250
+image  bitrate[bits/pel]: 7.013916
+-----------------------------------
+total  bitrate[bits/pel]: 7.046143
+
+*** start decoding ***
+decoding success.
+*** write pgm ***
+write pgm success.
+
+OK!
+/Users/shimehituzi/Dropbox/lab/lossless-challegne/TMW/couple.pgm
+*** start encoding ***
+encoding success.
+pmodel bitrate[bits/pel]: 0.031250
+image  bitrate[bits/pel]: 6.422729
+-----------------------------------
+total  bitrate[bits/pel]: 6.454956
+
+*** start decoding ***
+decoding success.
+*** write pgm ***
+write pgm success.
+
+OK!
+/Users/shimehituzi/Dropbox/lab/lossless-challegne/TMW/goldhill.pgm
+*** start encoding ***
+encoding success.
+pmodel bitrate[bits/pel]: 0.004938
+image  bitrate[bits/pel]: 7.536285
+-----------------------------------
+total  bitrate[bits/pel]: 7.541377
+
+*** start decoding ***
+decoding success.
+*** write pgm ***
+write pgm success.
+
+OK!
+/Users/shimehituzi/Dropbox/lab/lossless-challegne/TMW/lena.pgm
+*** start encoding ***
+encoding success.
+pmodel bitrate[bits/pel]: 0.007812
+image  bitrate[bits/pel]: 7.596710
+-----------------------------------
+total  bitrate[bits/pel]: 7.604767
+
+*** start decoding ***
+decoding success.
+*** write pgm ***
+write pgm success.
+
+OK!
+/Users/shimehituzi/Dropbox/lab/lossless-challegne/TMW/lennagrey.pgm
+*** start encoding ***
+encoding success.
+pmodel bitrate[bits/pel]: 0.007812
+image  bitrate[bits/pel]: 7.451172
+-----------------------------------
+total  bitrate[bits/pel]: 7.459229
+
+*** start decoding ***
+decoding success.
+*** write pgm ***
+write pgm success.
+
+OK!
+/Users/shimehituzi/Dropbox/lab/lossless-challegne/TMW/noisesquare.pgm
+*** start encoding ***
+encoding success.
+pmodel bitrate[bits/pel]: 0.031250
+image  bitrate[bits/pel]: 5.753296
+-----------------------------------
+total  bitrate[bits/pel]: 5.785522
+
+*** start decoding ***
+decoding success.
+*** write pgm ***
+write pgm success.
+
+OK!
+/Users/shimehituzi/Dropbox/lab/lossless-challegne/TMW/peppers.pgm
+*** start encoding ***
+encoding success.
+pmodel bitrate[bits/pel]: 0.007812
+image  bitrate[bits/pel]: 7.595367
+-----------------------------------
+total  bitrate[bits/pel]: 7.603424
+
+*** start decoding ***
+decoding success.
+*** write pgm ***
+write pgm success.
+
+OK!
+/Users/shimehituzi/Dropbox/lab/lossless-challegne/TMW/shapes.pgm
+*** start encoding ***
+encoding success.
+pmodel bitrate[bits/pel]: 0.007812
+image  bitrate[bits/pel]: 6.746552
+-----------------------------------
+total  bitrate[bits/pel]: 6.754608
+
+*** start decoding ***
+decoding success.
+*** write pgm ***
+write pgm success.
+
+OK!
