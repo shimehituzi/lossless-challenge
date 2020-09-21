@@ -35,6 +35,13 @@ ENCODER init_encoder(IMAGE *img)
   enc.height = img->height;
   enc.width = img->width;
   enc.maxval = img->maxval;
+  enc.filtered_val = (img_t **)alloc_2d_array(img->height, img->width, sizeof(img_t));
+  int y,x;
+  for(y = 0; y < img->height; y++){
+    for(x = 0; x < img->width; x++){
+      enc.filtered_val[y][x] = 0;
+    }
+  }
   enc.histogram = (int *)alloc_mem((img->maxval + 1) * sizeof(int));
   enc.pmodel = (uint *)alloc_mem((img->maxval + 1) * sizeof(int));
   enc.pmodel_precision = PMODEL_PRECISION;
@@ -47,6 +54,33 @@ ENCODER init_encoder(IMAGE *img)
   }
 
   return (enc);
+}
+
+// フィルタを掛ける
+void dpcm(ENCODER *enc, IMAGE *img)
+{
+  int y, x;
+  int e1, e2, e3, e4;
+  for(y = 0 ; y < enc->height; y++){
+    for(x = 0 ; x < enc->width; x++){
+      if(y == 0 && x == 0 ){
+        e1 = img->val[y][x];
+        enc->filtered_val[y][x] = e1;
+      }
+      else if(y == 0){
+        e2 = img->val[y][x] - img->val[y][x-1]; 
+        enc->filtered_val[y][x] = e2;
+      }
+      else if(x == 0){
+        e3 = img->val[y][x] - img->val[y-1][x];
+        enc->filtered_val[y][x] = e3;
+      }
+      else{
+        e4 = img->val[y][x] - img->val[y][x-1] - img->val[y-1][x] + img->val[y-1][x-1];
+        enc->filtered_val[y][x] = e4;
+      }
+    }
+  }
 }
 
 // 復号に必要な情報をヘッダーに書き込む
@@ -62,13 +96,13 @@ int write_header(ENCODER *enc, FILE *fp)
 }
 
 // 画像のヒストグラムを計算する
-void calc_histogram(ENCODER *enc, IMAGE *img)
+void calc_histogram(ENCODER *enc)
 {
   for (int h = 0; h < enc->height; h++)
   {
     for (int w = 0; w < enc->width; w++)
     {
-      int val = img->val[h][w];
+      int val = enc->filtered_val[h][w];
       enc->histogram[val]++;
     }
   }
@@ -114,7 +148,7 @@ int encode_pmodel(ENCODER *enc, FILE *fp)
 }
 
 // 画像を符号化
-int encode_image(ENCODER *enc, FILE *fp, IMAGE *img)
+int encode_image(ENCODER *enc, FILE *fp)
 {
   PMODEL pm;
   pm.freq = enc->pmodel;
@@ -139,7 +173,7 @@ int encode_image(ENCODER *enc, FILE *fp, IMAGE *img)
   {
     for (int x = 0; x < enc->width; x++)
     {
-      val = img->val[y][x];
+      val = enc->filtered_val[y][x];
       rc_encode(fp, enc->rc, pm.cumfreq[val], pm.freq[val], totfreq);
     }
   }
@@ -168,8 +202,11 @@ int main(int argc, char **argv)
   // 　画像を基にエンコーダーを初期化
   enc = init_encoder(img);
 
+  //フィルタを掛ける
+  dpcm(&enc, img);
+
   // 画像のヒストグラムを計算
-  calc_histogram(&enc, img);
+  calc_histogram(&enc);
 
   // 画像のヒストグラムから確率モデルを作成
   generate_pmodel(&enc);
@@ -186,7 +223,7 @@ int main(int argc, char **argv)
   bits += pmodel_rate = encode_pmodel(&enc, fp);
 
   // 画像を符号化
-  bits += image_rate = encode_image(&enc, fp, img);
+  bits += image_rate = encode_image(&enc, fp);
 
   printf("encoding success.\n");
 
